@@ -1,11 +1,11 @@
 "use client";
-import { useEffect } from "react";
+
 import Search from "../components/Search/search";
 
 export default function Home() {
   const fetch2 = async () => {
     try {
-      const res = await fetch("./api/search?query=avengers");
+      const res = await fetch("./api/genresMovies");
 
       // Check if the request was successful
       if (!res.ok) {

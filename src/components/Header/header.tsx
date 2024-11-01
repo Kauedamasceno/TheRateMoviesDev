@@ -1,16 +1,23 @@
-import React from "react";
+"use client";
 import Logo from "../Logo/logo";
-import Search from "../Search/search";
 import Nav from "../Nav/nav";
+import { useSizeScreen } from "@/hooks/useSizeScreen";
+import { HeaderMobile } from "./headerMobile";
 
-type Props = {};
+const Header = () => {
+  const resSize = useSizeScreen();
 
-const Header = (props: Props) => {
   return (
-    <header className="flex justify-around p-3">
-      <Logo Name="LOgo MOvie" />
-      <Nav />
-    </header>
+    <>
+      {!resSize && (
+        <header className="p-3 flex justify-around">
+          <Logo Name="LOgo MOvie" />
+          <Nav />
+        </header>
+      )}
+
+      {resSize && <HeaderMobile />}
+    </>
   );
 };
 

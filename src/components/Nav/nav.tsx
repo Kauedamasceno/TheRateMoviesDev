@@ -6,14 +6,20 @@ type Props = {};
 
 const Nav = (props: Props) => {
   return (
-    <nav className="flex items-center gap-5">
+    <nav className="flex items-center gap-7 max-lg:flex-col">
       <Search />
-      <Link href="/popular" className="bg-black">
+      <Link href="/popular" className="max-lg:text-2xl">
         Populares
       </Link>
-      <Link href="/trending">Em alta</Link>
-      <Link href="/discover">Descubra</Link>
-      <Link href="/comingUp">Que irão lançar</Link>
+      <Link href="/trending" className="max-lg:text-2xl">
+        Em alta
+      </Link>
+      <Link href="/discover" className="max-lg:text-2xl">
+        Descubra
+      </Link>
+      <Link href="/comingUp" className="max-lg:text-2xl">
+        Que irão lançar
+      </Link>
     </nav>
   );
 };

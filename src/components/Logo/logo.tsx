@@ -3,7 +3,7 @@ type LogoProps = {
 };
 
 const Logo = ({ Name }: LogoProps) => {
-  return <h1>{Name}</h1>;
+  return <h1 className='text-6xl'>{Name}</h1>;
 };
 
 export default Logo;

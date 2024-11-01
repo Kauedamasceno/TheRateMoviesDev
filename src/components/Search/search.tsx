@@ -1,20 +1,16 @@
-'use client'
+"use client";
 import { searchFormAction } from "@/actions/searchFormAction";
 
 const Search = () => {
-
   console.log("client");
 
   return (
-    <form
-      action={searchFormAction}
-      className="w-full h-6 flex  items-center gap-2"
-    >
+    <form action={searchFormAction} className=" h-6 flex  items-center gap-2">
       <input
         name="search"
         type="text"
         placeholder="Procure o filme"
-        className=" p-2 border outline-none border-gray-400"
+        className=" p-2 border outline-none border-gray-400 bg-transparent rounded-xl"
       />
       <button type="submit">
         <svg

@@ -1,15 +1,15 @@
 import React from "react";
 import Logo from "../Logo/logo";
-import Search from '../Search/search';
-
+import Search from "../Search/search";
+import Nav from "../Nav/nav";
 
 type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <header>
+    <header className="flex justify-around p-3">
       <Logo Name="LOgo MOvie" />
-      <Search/>
+      <Nav />
     </header>
   );
 };

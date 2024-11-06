@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import {Roboto} from 'next/font/google'
-import './globals.css'
-import Header from '@/components/Header/header';
-import Footer from '@/components/Footer/Footer';
+import { Roboto } from "next/font/google";
+
+import "./globals.css";
+import Header from "@/components/Header/header";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -10,11 +11,11 @@ export const metadata: Metadata = {
 };
 
 const roboto = Roboto({
-  weight: ['400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto',
-})
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto",
+});
 
 export default function RootLayout({
   children,
@@ -23,11 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${roboto.variable}`}>
-      <body className='font-roboto bg-black text-white'>
-        <Header/>
+      <body className="font-roboto bg-black text-white">
+        <Header />
         {children}
-        <Footer/>
-        </body>
+        <Footer />
+      </body>
     </html>
   );
 }

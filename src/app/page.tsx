@@ -1,3 +1,4 @@
+
 import OutDoor from '@/components/OutDoor/outDoor';
 
 export default function Home() {

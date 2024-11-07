@@ -39,7 +39,7 @@ const Footer = () => {
           Series populares
         </Link>
 
-        <Link href="/top-rated" className="max-sm:text-sm">
+        <Link href="/top-rated-series" className="max-sm:text-sm">
           Series melhores avaliados
         </Link>
 

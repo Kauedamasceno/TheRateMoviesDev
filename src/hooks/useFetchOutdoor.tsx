@@ -1,7 +1,7 @@
 
 import { useEffect,useState } from "react";
 
-type dataType = {
+export type dataType = {
   id: number;
   overview: string;
   popularity: number;

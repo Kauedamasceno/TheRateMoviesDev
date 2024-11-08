@@ -2,6 +2,7 @@
 import { useEffect,useState } from "react";
 
 export type dataType = {
+  name: string
   id: number;
   overview: string;
   popularity: number;

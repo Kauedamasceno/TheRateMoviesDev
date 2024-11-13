@@ -1,7 +1,9 @@
 "use client";
+import { useSizeScreen } from "@/hooks/useSizeScreen";
+
 import Logo from "../Logo/logo";
 import Nav from "../Nav/nav";
-import { useSizeScreen } from "@/hooks/useSizeScreen";
+
 import { HeaderMobile } from "./headerMobile";
 
 const Header = () => {

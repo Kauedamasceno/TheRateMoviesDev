@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import * as handlesCard from "@/utils/handleClickCards";
 import { Slug, useFetchCards } from "@/hooks/useFetchCards";
+import { useSizeScreenDeck } from "@/hooks/useSizeScreenDeck";
 
 import Card from "../Card/Card";
 
@@ -13,9 +14,10 @@ type DeckProps = {
 };
 
 const Deck = ({ slug, name }: DeckProps) => {
-  const [click, setClick] = useState<number[]>([0, 5]);
+  const [click, setClick] = useState<number[]>([0, 6]);
+  useSizeScreenDeck({ setClick });
 
-  const { cards, link } = useFetchCards({ slug, click});
+  const { cards, link } = useFetchCards({ slug, click });
   console.log(cards, "-------------------------------------------");
   return (
     <div className="h-full w-full flex flex-col relative ">
@@ -64,7 +66,7 @@ const Deck = ({ slug, name }: DeckProps) => {
         </div>
       )}
 
-      <div className="flex justify-around mb-2 bg-gray-950 ">
+      <div className="flex justify-around items-center mb-2 bg-gray-950 ">
         <h2 className="text-xl font-bold">{name}</h2>
         {link && (
           <Link
@@ -76,7 +78,7 @@ const Deck = ({ slug, name }: DeckProps) => {
           </Link>
         )}
       </div>
-      <div className="h-full w-full flex justify-evenly mb-14 overflow-hidden">
+      <div className="h-full w-full flex justify-evenly pb-16 overflow-hidden">
         {cards &&
           cards.map((e) => (
             <Card

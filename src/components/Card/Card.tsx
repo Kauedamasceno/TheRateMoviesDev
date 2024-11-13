@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from "react";
 
 type CardProps = {
@@ -8,18 +9,28 @@ type CardProps = {
 };
 
 const Card = ({ id, title, poster_path, name }: CardProps) => {
+  let path = ''
+
+  if (name) {
+    path = `/serie/${id}`
+    } else {
+    path = `/movie/${id}`
+    }
+
   return (
-    <div className="h-60 w-40  rounded-lg   hover:scale-110 ">
+    <Link href={path} className="h-60 w-40 rounded-lg box-border  hover:scale-110 ">
       <img
         src={`https://image.tmdb.org/t/p/original/${poster_path}`}
         alt={title}
-        className="h-full rounded-xl"
+        className="block rounded-xl"
       />
       <h2 className="text-center font-bold">
         {title && title}
+
         {name && name}
       </h2>
-    </div>
+      
+    </Link>
   );
 };
 

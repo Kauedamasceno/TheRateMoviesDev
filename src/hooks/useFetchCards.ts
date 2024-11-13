@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import type { dataType } from "./useFetchOutdoor";
+import { useSizeScreen } from './useSizeScreen';
 
 export type Slug = {
   slug: "trending-movies" | "trending-series" | "popular-movies" | "popular-series" | "coming-up";
@@ -17,10 +18,12 @@ export const useFetchCards = ({ slug, click }: useFetchCardsProps) => {
   const url = GetUrl(slug);
   const link = GetUrlLink(slug)
   const [cards, setCards] = useState<dataType[] | undefined>(undefined);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (url === undefined) return "error";
+        
         const res = await fetch(url, {cache: 'force-cache'});
         const data = await res.json();
         setCards(data.results.slice(click[0],click[1]));

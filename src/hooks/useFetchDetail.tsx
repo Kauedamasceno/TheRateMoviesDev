@@ -41,7 +41,7 @@ type fetchDetail = {
     }
   ];
   in_production: boolean;
-  season_number: number,
+  season_number: number;
   seasons: [
     {
       air_date: string;
@@ -50,7 +50,7 @@ type fetchDetail = {
       name: string;
       overview: string;
       poster_path: string;
-  
+
       vote_average: number;
     }
   ];
@@ -83,7 +83,7 @@ export const useFetchDetails = ({ id, type }: useFetchDetailsProps) => {
       }
     };
     fetchData();
-  }, []);
+  }, [id,type]);
 
   return { detail };
 };

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 import React from "react";
 
 type CardProps = {
@@ -9,16 +9,19 @@ type CardProps = {
 };
 
 const Card = ({ id, title, poster_path, name }: CardProps) => {
-  let path = ''
+  let path = "";
 
   if (name) {
-    path = `/serie/${id}`
-    } else {
-    path = `/movie/${id}`
-    }
+    path = `/serie/${id}`;
+  } else {
+    path = `/movie/${id}`;
+  }
 
   return (
-    <Link href={path} className="h-60 w-40 rounded-lg box-border  hover:scale-110 ">
+    <Link
+      href={path}
+      className="h-60 w-40 rounded-lg box-border  hover:scale-110 "
+    >
       <img
         src={`https://image.tmdb.org/t/p/original/${poster_path}`}
         alt={title}
@@ -29,7 +32,6 @@ const Card = ({ id, title, poster_path, name }: CardProps) => {
 
         {name && name}
       </h2>
-      
     </Link>
   );
 };

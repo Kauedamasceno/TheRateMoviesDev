@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 
 import { useFetchDetails } from "@/hooks/useFetchDetail";
 
+import Season from "../Season/Season";
+
 import { DetailsData } from "./detailsData/detailsData";
 
 type DetailsProps = {
@@ -11,30 +13,41 @@ type DetailsProps = {
 };
 
 const Details = ({ id, type }: DetailsProps) => {
+  const [hasSeason, setHasSeason] = useState(false);
   const { detail } = useFetchDetails({ id, type });
+
+  useEffect(() => {
+    if (detail !== undefined) {
+      if (detail.seasons) {
+        setHasSeason(true);
+      } else {
+        setHasSeason(false);
+      }
+    }
+  }, [detail]);
 
   return (
     <div className="w-1/2 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-3 text-orange-600 bg-gray-900 rounded-lg p-2 max-md:text-3xl">
+      <h1 className=" mb-3 p-2 text-4xl font-bold rounded-lg text-orange-600 bg-gray-900  max-md:text-3xl">
         {detail?.title || detail?.name}
       </h1>
       {detail && (
         <img
           src={`https://image.tmdb.org/t/p/original/${detail.backdrop_path}`}
           alt={detail.title}
-          className=" rounded-xl border-white border-2 rounded-lg"
+          className=" border-2 rounded-lg border-white "
         />
       )}
       <h2 className="text-3xl my-3 max-md:text-2xl">
         {detail?.title || detail?.name}
       </h2>
-      <p className="p-3 rounded-lg text-xl bg-gray-950 border-white border-2 rounded-lg max-md:text-lg">
+      <p className="p-3 rounded-lg text-xl border-2 bg-gray-950 border-white max-md:text-lg">
         {detail?.overview}
       </p>
 
-      <h2 className="font-bold text-2xl my-4 max-md:text-xl ">Generos</h2>
+      <h2 className="my-4 text-2xl font-bold max-md:text-xl ">Generos</h2>
 
-      <div className="flex justify-evenly w-full  p-3 border-white border-2 rounded-lg flex-wrap max-md:justify-center max-md:text-center gap-3">
+      <div className="w-full p-3 flex flex-wrap gap-3 rounded-lg justify-evenly border-white border-2  max-md:justify-center max-md:text-center ">
         {detail &&
           detail.genres.map((e) => {
             return (
@@ -64,10 +77,10 @@ const Details = ({ id, type }: DetailsProps) => {
         />
       )}
 
-      <h2 className="font-bold text-2xl my-4  text-balance max-md:text-xl">
+      <h2 className="my-4 text-2xl font-bold text-balance max-md:text-xl">
         Produtoras
       </h2>
-      <div className="flex justify-between w-full flex-wrap  p-3 border-white border-2 rounded-lg max-md:justify-center max-md:text-center mb-4">
+      <div className="w-full mb-4 p-3 flex justify-between flex-wrap border-2 rounded-lg border-white max-md:justify-center max-md:text-center ">
         {detail &&
           detail.production_companies.map((e) => {
             return (
@@ -80,8 +93,12 @@ const Details = ({ id, type }: DetailsProps) => {
             );
           })}
       </div>
+
+      {hasSeason && detail && <Season seasons={detail.seasons} />}
     </div>
   );
 };
 
 export default Details;
+
+

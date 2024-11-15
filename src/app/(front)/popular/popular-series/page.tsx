@@ -1,9 +1,12 @@
+import CardsMoviesAndSeries from '@/components/CardsMoviesAndSeries/CardsMoviesAndSeries'
 import React from 'react'
 
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <CardsMoviesAndSeries name="Series populares" slug="popular-series" />
+    </div>
   )
 }
 

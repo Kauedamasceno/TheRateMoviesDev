@@ -1,10 +1,9 @@
 import React from "react";
-import Search from "../Search/search";
 import Link from "next/link";
 
-type Props = {};
+import Search from "../Search/search";
 
-const Nav = (props: Props) => {
+const Nav = () => {
   return (
     <nav className="flex items-center gap-7 max-lg:flex-col">
       <Search />
@@ -14,11 +13,11 @@ const Nav = (props: Props) => {
       <Link href="/trending" className="max-lg:text-2xl">
         Em alta
       </Link>
-      <Link href="/discover" className="max-lg:text-2xl">
+      <Link href="/discovery" className="max-lg:text-2xl">
         Descubra
       </Link>
-      <Link href="/comingUp" className="max-lg:text-2xl">
-        Que irão lançar
+      <Link href="/top-rated" className="max-lg:text-2xl">
+        Melhores avaliados
       </Link>
     </nav>
   );

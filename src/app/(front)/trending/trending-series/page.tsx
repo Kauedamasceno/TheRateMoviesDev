@@ -1,8 +1,13 @@
-import React from 'react'
-
+import CardsMoviesAndSeries from "@/components/CardsMoviesAndSeries/CardsMoviesAndSeries";
+import React from "react";
 
 export const page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div>
+      <CardsMoviesAndSeries
+        name="Series em Tendencia no momento"
+        slug="trending-series"
+      />
+    </div>
+  );
+};

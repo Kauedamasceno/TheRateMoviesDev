@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 
 import * as handlesCard from "@/utils/handleClickCards";
-import { Slug, useFetchCards } from "@/hooks/useFetchCards";
+import { useFetchCards } from "@/hooks/useFetchCards";
 import { useSizeScreenDeck } from "@/hooks/useSizeScreenDeck";
+import { Slug } from "@/utils/getApiURl";
 
 import Card from "../Card/Card";
 
@@ -66,7 +67,7 @@ const Deck = ({ slug, name }: DeckProps) => {
         </div>
       )}
 
-      <div className="flex justify-around items-center mb-2 bg-gray-950 ">
+      <div className="flex justify-around items-center mb-4 text-xl text-orange-600 ">
         <h2 className="text-xl font-bold">{name}</h2>
         {link && (
           <Link

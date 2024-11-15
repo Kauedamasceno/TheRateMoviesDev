@@ -1,11 +1,16 @@
-import React from 'react'
-
-
+import CardsMoviesAndSeries from '@/components/CardsMoviesAndSeries/CardsMoviesAndSeries';
+import React from "react";
 
 const page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div>
+      {" "}
+      <CardsMoviesAndSeries
+        name="Series com melhor avaliação"
+        slug="top-rated-series"
+      />
+    </div>
+  );
+};
 
-export default page
+export default page;

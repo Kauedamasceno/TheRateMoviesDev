@@ -2,31 +2,39 @@
 
 import { useEffect, useState } from "react";
 
-import type { dataType } from "./useFetchOutdoor";
-import { useSizeScreen } from './useSizeScreen';
+import { GetApiUrl, Slug } from "@/utils/getApiURl";
+import { GetUrlLink } from "@/utils/getLinkUrl";
 
-export type Slug = {
-  slug: "trending-movies" | "trending-series" | "popular-movies" | "popular-series" | "coming-up";
-};
+import type { dataType } from "./useFetchOutdoor";
 
 type useFetchCardsProps = {
   slug: Slug;
-  click: number[];
+  click?: number[];
+  page?: number;
 };
 
-export const useFetchCards = ({ slug, click }: useFetchCardsProps) => {
-  const url = GetUrl(slug);
-  const link = GetUrlLink(slug)
+export const useFetchCards = ({
+  slug,
+  click,
+  page = 1,
+}: useFetchCardsProps) => {
+  const url = GetApiUrl({ slug, page });
+  const link = GetUrlLink(slug);
   const [cards, setCards] = useState<dataType[] | undefined>(undefined);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (url === undefined) return "error";
-        
-        const res = await fetch(url, {cache: 'force-cache'});
+
+        const res = await fetch(url, { cache: "force-cache" });
         const data = await res.json();
-        setCards(data.results.slice(click[0],click[1]));
+        if (click) {
+          setCards(data.results.slice(click[0], click[1]));
+          console.log(click + "-aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        } else {
+          setCards(data.results);
+        }
       } catch (e) {
         console.log(e);
       }
@@ -34,41 +42,5 @@ export const useFetchCards = ({ slug, click }: useFetchCardsProps) => {
     fetchData();
   }, [click, url]);
 
-  return { cards,link };
-};
-
-const GetUrl = ({ slug }: Slug) => {
-
-  switch (slug) {
-    case "trending-movies":
-      return "/api/trendingMovies";
-    case "trending-series":
-      return "/api/trendingSeries";
-    case "popular-movies":
-      return "/api/popularMovies";
-    case "popular-series":
-      return "/api/popularSeries";
-    case "coming-up":
-      return "o";
-
-    default:
-  }
-};
-
-const GetUrlLink = ({ slug }: Slug) => {
-
-  switch (slug) {
-    case "trending-movies":
-      return "/trending/trending-movies";
-    case "trending-series":
-      return "/trending/trending-series";
-    case "popular-movies":
-      return "/popular/popular-movies";
-    case "popular-series":
-      return "/popular/popular-series";
-    case "coming-up":
-      return "/coming-up";
-
-    default:
-  }
+  return { cards, link };
 };

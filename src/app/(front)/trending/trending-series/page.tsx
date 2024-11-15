@@ -2,7 +2,7 @@ import React from "react";
 
 import CardsMoviesAndSeries from "@/components/CardsMoviesAndSeries/CardsMoviesAndSeries";
 
-export const page = () => {
+const page = () => {
   return (
     <div>
       <CardsMoviesAndSeries
@@ -12,3 +12,5 @@ export const page = () => {
     </div>
   );
 };
+
+export default page; 

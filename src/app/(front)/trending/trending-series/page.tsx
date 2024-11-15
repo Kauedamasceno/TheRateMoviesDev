@@ -1,5 +1,6 @@
-import CardsMoviesAndSeries from "@/components/CardsMoviesAndSeries/CardsMoviesAndSeries";
 import React from "react";
+
+import CardsMoviesAndSeries from "@/components/CardsMoviesAndSeries/CardsMoviesAndSeries";
 
 export const page = () => {
   return (

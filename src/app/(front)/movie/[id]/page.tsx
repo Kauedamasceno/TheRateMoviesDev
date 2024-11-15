@@ -1,19 +1,19 @@
-import React from 'react'
+import React from "react";
 
-import Details from '@/components/Details/Details'
+import Details from "@/components/Details/Details";
 
 type MovieProps = {
-  params: Promise<{id: string}>
-}
+  params: Promise<{ id: string }>;
+};
 
-const page = async ({params}: MovieProps) => {
-  const id = (await params).id
-  
+const page = async ({ params }: MovieProps) => {
+  const id = (await params).id;
+
   return (
-    <div className='flex justify-center'>
-      <Details id={id} type='movie'/>
+    <div className="flex justify-center">
+      <Details id={id} type="movie" />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

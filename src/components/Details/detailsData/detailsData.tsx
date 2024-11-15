@@ -18,7 +18,6 @@ type detailsData = {
 export const DetailsData = ({
   type,
   adult,
-  status,
   budget,
   first_air_date,
   release_date,

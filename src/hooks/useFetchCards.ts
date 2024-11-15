@@ -31,7 +31,6 @@ export const useFetchCards = ({
         const data = await res.json();
         if (click) {
           setCards(data.results.slice(click[0], click[1]));
-          console.log(click + "-aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         } else {
           setCards(data.results);
         }

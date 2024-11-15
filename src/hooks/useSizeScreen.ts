@@ -9,12 +9,12 @@ export const useSizeScreen = () => {
     const getsize = () => setResSize(innerWidth);
 
     window.addEventListener("resize", getsize);
-    console.log(resSize);
+   
 
     return () => {
       window.removeEventListener("resize", getsize);
     };
-  }, []);
+  }, [resSize]);
 
   if (resSize < 1024) {
     sizeMobile = true;

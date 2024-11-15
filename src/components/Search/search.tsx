@@ -1,7 +1,6 @@
 import { searchFormAction } from "@/actions/searchFormAction";
 
 const Search = () => {
-  console.log("client");
 
   return (
     <form action={searchFormAction} className="h-6 flex items-center gap-2">

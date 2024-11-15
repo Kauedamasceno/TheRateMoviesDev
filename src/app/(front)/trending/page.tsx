@@ -1,7 +1,6 @@
 import React from "react";
 
-import Deck from "@/components/Deck/Deck";
-import CardsMoviesAndSeries from '@/components/CardsMoviesAndSeries/CardsMoviesAndSeries';
+import CardsMoviesAndSeries from "@/components/CardsMoviesAndSeries/CardsMoviesAndSeries";
 const Trending = () => {
   return (
     <div>

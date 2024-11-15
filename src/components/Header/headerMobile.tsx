@@ -8,7 +8,7 @@ export const HeaderMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    console.log(isOpen);
+
   }, [isOpen]);
 
   return (

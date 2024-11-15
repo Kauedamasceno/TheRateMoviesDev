@@ -23,7 +23,7 @@ export const useFetchOutdoor = ({ click }: useFetchOutdoorProps) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/api/popularMovies`, {cache: 'force-cache'});
+        const response = await fetch(`/api/popularMovies?page=1 `, {cache: 'force-cache'});
         if (!response.ok) {
           throw new Error("Network response wasn´t ok");
         }

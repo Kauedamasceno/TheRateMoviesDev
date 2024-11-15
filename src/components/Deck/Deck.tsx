@@ -19,7 +19,6 @@ const Deck = ({ slug, name }: DeckProps) => {
   useSizeScreenDeck({ setClick });
 
   const { cards, link } = useFetchCards({ slug, click });
-  console.log(cards, "-------------------------------------------");
   return (
     <div className="h-full w-full flex flex-col relative ">
       {click[1] < 20 && (

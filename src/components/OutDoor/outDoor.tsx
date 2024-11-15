@@ -10,8 +10,6 @@ const OutDoor = () => {
   const [click, setClick] = useState<number>(0);
   const { numberOutdoor } = useFetchOutdoor({ click });
 
-  console.log(numberOutdoor);
-
   return (
     <div className="h-screen w-full p-14 flex relative max-lg:h-full max-lg:flex-col-reverse max-lg:gap-3 ">
       {click < 6 && (

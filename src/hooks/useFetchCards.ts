@@ -21,6 +21,7 @@ export const useFetchCards = ({
   const url = GetApiUrl({ slug, page });
   const link = GetUrlLink(slug);
   const [cards, setCards] = useState<dataType[] | undefined>(undefined);
+  const [totalPage,setTotalPage] = useState<number>(0)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +33,7 @@ export const useFetchCards = ({
         if (click) {
           setCards(data.results.slice(click[0], click[1]));
         } else {
+          setTotalPage(data.total_pages)
           setCards(data.results);
         }
       } catch (e) {
@@ -41,5 +43,5 @@ export const useFetchCards = ({
     fetchData();
   }, [click, url]);
 
-  return { cards, link };
+  return { cards, link,totalPage };
 };

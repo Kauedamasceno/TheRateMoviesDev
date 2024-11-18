@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 
-import * as ClickPage from "@/utils/ClickPage";
 import { useFetchCards } from "@/hooks/useFetchCards";
 import { Slug } from "@/utils/getApiURl";
 
@@ -15,11 +14,13 @@ type CardsMoviesAndSeriesProps = {
 const CardsMoviesAndSeries = ({ slug, name }: CardsMoviesAndSeriesProps) => {
   const [page, setPage] = useState(1);
 
-  const { cards } = useFetchCards({ slug, page });
+  const { cards,totalPage } = useFetchCards({ slug, page });
 
   return (
     <div>
-      <h2 className="mb-4 text-3xl text-center font-bold text-orange-600">{name}</h2>
+      <h2 className="mb-4 text-3xl text-center font-bold text-orange-600">
+        {name}
+      </h2>
       <div className="h-full w-full pb-20 grid grid-cols-5 gap-20 justify-items-center max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
         {cards &&
           cards.map((e) => {
@@ -36,10 +37,7 @@ const CardsMoviesAndSeries = ({ slug, name }: CardsMoviesAndSeriesProps) => {
       </div>
       <div className="w-full mb-4 flex items-center justify-center gap-4 ">
         {page > 1 && (
-          <button
-            onClick={() => setPage(ClickPage.DecreasePage)}
-            className="w-8 "
-          >
+          <button onClick={() => setPage((r) => r - 1)} className="w-8 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -50,9 +48,9 @@ const CardsMoviesAndSeries = ({ slug, name }: CardsMoviesAndSeriesProps) => {
             </svg>
           </button>
         )}
-        {page < 10 && (
+        {page < totalPage && (
           <button
-            onClick={() => setPage(ClickPage.AcrescentPage)}
+            onClick={() => setPage((r) => r + 1)}
             className="w-8 text-center  text-orange-600"
           >
             <svg

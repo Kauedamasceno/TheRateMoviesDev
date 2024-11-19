@@ -1,16 +1,28 @@
+"use client";
+import { useState } from "react";
+
 import { searchFormAction } from "@/actions/searchFormAction";
 
 const Search = () => {
+  const [search, setSearch] = useState("");
 
+    const handleSubmit = async () => {
+      const data = await fetch(`/api/search?query=${search}`); 
+      const jsonData = await data.json();
+      console.log(jsonData);
+    };
+  
   return (
     <form action={searchFormAction} className="h-6 flex items-center gap-2">
       <input
         name="search"
         type="text"
         placeholder="Procure o filme"
+        onChange={(e) => setSearch(e.target.value)}
         className="p-2 border rounded-xl border-gray-400 outline-none bg-transparent"
+        
       />
-      <button type="submit">
+      <button type="submit" onClick={() => handleSubmit()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"

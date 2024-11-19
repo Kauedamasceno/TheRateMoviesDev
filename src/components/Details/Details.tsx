@@ -100,5 +100,3 @@ const Details = ({ id, type }: DetailsProps) => {
 };
 
 export default Details;
-
-

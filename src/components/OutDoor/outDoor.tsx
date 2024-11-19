@@ -57,6 +57,7 @@ const OutDoor = () => {
       <img
         className="h-full max-lg:h-[50%]"
         src={`https://image.tmdb.org/t/p/original/${numberOutdoor?.poster_path}`}
+        alt={numberOutdoor?.title}
       />
     </div>
   );

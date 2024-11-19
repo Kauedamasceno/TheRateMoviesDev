@@ -42,7 +42,7 @@ export const DetailsData = ({
           <p className="font-bold max-md:text-sm">
             Data de lançamento:
             <span className="font-normal text-orange-600">
-              {" " + release_date}
+              {" " + new Date(release_date).toLocaleDateString("pt-BR")}
             </span>
           </p>
         }
@@ -62,11 +62,15 @@ export const DetailsData = ({
 
         <p className="font-bold max-md:text-sm">
           Orçamento:
-          <span className="font-normal text-orange-600">{" " + budget}</span>
+          <span className="font-normal text-orange-600">
+            {" $" + budget.toLocaleString("pt-BR")}
+          </span>
         </p>
         <p className="font-bold max-md:text-sm">
           Arrecadação:
-          <span className="font-normal text-orange-600">{" " + revenue}</span>
+          <span className="font-normal text-orange-600">
+            {"  $" + revenue.toLocaleString("pt-BR")}
+          </span>
         </p>
       </div>
     );

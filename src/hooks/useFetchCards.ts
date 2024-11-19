@@ -35,13 +35,16 @@ export const useFetchCards = ({
         } else {
           setTotalPage(data.total_pages)
           setCards(data.results);
+          if (slug === 'trending-movies' || slug === 'trending-series') setTotalPage(1)
+
         }
       } catch (e) {
         console.log(e);
       }
     };
     fetchData();
-  }, [click, url]);
+  }, [click, url,slug]);
+
 
   return { cards, link,totalPage };
 };

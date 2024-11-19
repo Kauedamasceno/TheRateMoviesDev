@@ -23,7 +23,7 @@ const Card = ({ id, title, poster_path, name }: CardProps) => {
       className="h-60 w-40 rounded-lg box-border  hover:scale-110 "
     >
       <img
-        src={`https://image.tmdb.org/t/p/original/${poster_path}`}
+        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
         alt={title}
         className="block rounded-xl"
       />

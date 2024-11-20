@@ -13,12 +13,12 @@ const Header = () => {
     <>
       {!resSize && (
         <header className="p-3 flex justify-around">
-          <Logo Name="LOgo MOvie" />
+          <Logo Name="The Rate Cinema" />
           <Nav />
         </header>
       )}
 
-      {resSize && <HeaderMobile />}
+      {resSize && <HeaderMobile Name='The Rate Cinema'/>}
     </>
   );
 };

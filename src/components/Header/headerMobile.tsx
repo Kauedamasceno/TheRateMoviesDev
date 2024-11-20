@@ -4,18 +4,20 @@ import { useEffect, useState } from "react";
 import Logo from "../Logo/logo";
 import Nav from "../Nav/nav";
 
-export const HeaderMobile = () => {
+type HeaderMobileProps = {
+  Name: string;
+};
+
+export const HeaderMobile = ({ Name }: HeaderMobileProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-
-  }, [isOpen]);
+  useEffect(() => {}, [isOpen]);
 
   return (
     <>
       {!isOpen && (
         <header className="p-4 flex justify-between">
-          <Logo Name="LOgo MOvie" />
+          <Logo Name={Name} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -30,7 +32,7 @@ export const HeaderMobile = () => {
       {isOpen && (
         <header className="h-96 w-screen p-4 flex flex-col absolute z-10 bg-black">
           <div className="h-20 w-full flex justify-between">
-            <Logo Name="LOgo MOvie" />
+            <Logo Name={Name} />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"

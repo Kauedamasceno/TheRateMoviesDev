@@ -1,28 +1,70 @@
-"use client";
-import { useState } from "react";
+// "use client";
+// import { useState } from "react";
+// import { useRouter } from "next/navigation";
+
+// import { searchFormAction } from "@/actions/searchFormAction";
+
+// const Search = () => {
+//   const router = useRouter();
+//   const [search, setSearch] = useState("");
+
+//   const handleSubmit = async () => {
+
+//     const data = await fetch(`/api/search?query=${search}`);
+//     console.log(data)
+//     const jsonData = await data.json();
+//     router.push(`/search/${search}`);
+//     console.log(jsonData);
+//   };
+
+//   return (
+//     <form className="h-6 flex items-center gap-2">
+//       <input
+//         name="search"
+//         type="text"
+//         placeholder="Procure o filme"
+//         onChange={(e) => setSearch(e.target.value)}
+//         className="p-2 border rounded-xl border-gray-400 outline-none bg-transparent"
+//       />
+//       <button onClick={() => handleSubmit()}>
+//         <svg
+//           xmlns="http://www.w3.org/2000/svg"
+//           fill="currentColor"
+//           className="bi bi-search h-4"
+//           viewBox="0 0 16 16"
+//         >
+//           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+//         </svg>
+//       </button>
+//     </form>
+//   );
+// };
+
+// export default Search;
+
+import { redirect } from "next/navigation";
 
 import { searchFormAction } from "@/actions/searchFormAction";
 
 const Search = () => {
-  const [search, setSearch] = useState("");
+  const actionGet = async (formData: FormData) => {
+    const search = formData.get("search");
+    console.log(search);
+    // Corrected API path
+    const data = await fetch(`/api/search?query=${search}`);
+    console.log(await data.json());
+    redirect(`/search/${search}`);
+  };
 
-    const handleSubmit = async () => {
-      const data = await fetch(`/api/search?query=${search}`); 
-      const jsonData = await data.json();
-      console.log(jsonData);
-    };
-  
   return (
     <form action={searchFormAction} className="h-6 flex items-center gap-2">
       <input
         name="search"
         type="text"
         placeholder="Procure o filme"
-        onChange={(e) => setSearch(e.target.value)}
         className="p-2 border rounded-xl border-gray-400 outline-none bg-transparent"
-        
       />
-      <button type="submit" onClick={() => handleSubmit()}>
+      <button type="submit">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"

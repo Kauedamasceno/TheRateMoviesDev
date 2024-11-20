@@ -4,10 +4,10 @@ const DecksHome = () => {
   return (
     <div>
       <Deck name="Filmes tendencia" slug="trending-movies" />
-      <Deck name="Series tendendia" slug="trending-series" />
+      <Deck name="Séries tendencia" slug="trending-series" />
       <Deck name="Filmes populares" slug="popular-movies" />
-      <Deck name="Series populares" slug="popular-series" />
-      <Deck name="Descubras" slug="discovery" />
+      <Deck name="Séries populares" slug="popular-series" />
+      <Deck name="Descubra" slug="discovery" />
     </div>
   );
 };

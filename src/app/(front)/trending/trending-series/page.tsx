@@ -6,11 +6,11 @@ const page = () => {
   return (
     <div>
       <CardsMoviesAndSeries
-        name="Series em Tendencia no momento"
+        name="Series em tendencia no momento"
         slug="trending-series"
       />
     </div>
   );
 };
 
-export default page; 
+export default page;

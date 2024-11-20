@@ -16,7 +16,7 @@ const Footer = () => {
         </Link>
 
         <Link href="/top-rated/top-rated-movies" className="max-sm:text-sm">
-          Filme melhores avaliados
+          Filmes melhores avaliados
         </Link>
 
         <Link href="/discovery" className="max-sm:text-sm">
@@ -28,15 +28,15 @@ const Footer = () => {
         <h2 className="text-2xl font-bold text-orange-600">Séries</h2>
 
         <Link href="/trending/trending-series" className="max-sm:text-sm">
-          Tendencia de series
+          Tendencia de séries
         </Link>
 
         <Link href="/popular/popular-series" className="max-sm:text-sm">
-          Series populares
+          Séries populares
         </Link>
 
         <Link href="/top-rated/top-rated-series" className="max-sm:text-sm">
-          Series melhores avaliados
+          Séries melhores avaliados
         </Link>
       </div>
     </div>

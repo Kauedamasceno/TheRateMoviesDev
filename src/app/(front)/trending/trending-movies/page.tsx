@@ -6,7 +6,7 @@ const page = () => {
   return (
     <div>
       <CardsMoviesAndSeries
-        name="Filmes em Tendencia no momento"
+        name="Filmes em tendencia no momento"
         slug="trending-movies"
       />
     </div>

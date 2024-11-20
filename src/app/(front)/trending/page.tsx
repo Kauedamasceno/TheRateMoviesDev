@@ -5,7 +5,7 @@ const Trending = () => {
   return (
     <div>
       <CardsMoviesAndSeries
-        name="Conteúdos em Tendencia no momento"
+        name="Conteúdos em tendencia no momento"
         slug="trending-movies"
       />
     </div>

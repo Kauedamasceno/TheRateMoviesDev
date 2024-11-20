@@ -5,7 +5,7 @@ import CardsMoviesAndSeries from "@/components/CardsMoviesAndSeries/CardsMoviesA
 const page = () => {
   return (
     <div>
-      <CardsMoviesAndSeries name="Series populares" slug="popular-series" />
+      <CardsMoviesAndSeries name="Séries populares" slug="popular-series" />
     </div>
   );
 };
